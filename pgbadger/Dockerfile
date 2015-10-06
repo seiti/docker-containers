@@ -10,5 +10,4 @@ RUN curl -L ${PGBADGER_URL} | tar -C /opt -xzf - \
     && perl Makefile.PL \
     && make install \
     && cpanm JSON::XS
-    
-		
+ENTRYPOINT ["/usr/local/bin/pgbadger", "--prefix", "%t:%r:%u@%d:[%p]:"]
